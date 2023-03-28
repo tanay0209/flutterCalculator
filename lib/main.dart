@@ -22,9 +22,6 @@ class Myapp extends StatelessWidget {
 class Calculator extends StatefulWidget {
   const Calculator({Key? key}) : super(key: key);
 
-
-
-
   @override
   State<Calculator> createState() => _CalculatorState();
 }
@@ -71,7 +68,7 @@ class _CalculatorState extends State<Calculator> {
          Expression exp = p.parse(displayString);
          ContextModel cm = ContextModel();
          resultString = '${exp.evaluate(EvaluationType.REAL, cm)}';
-         displayString = resultString;
+
          fontSize = 55.0;
        }
        catch (e) {
@@ -96,7 +93,7 @@ class _CalculatorState extends State<Calculator> {
     });
   }
 
-  Widget customBtn (String value , Color bgcolor , Color txtColor ) {
+  Widget customBtn (String value , Color bgColor , Color txtColor ) {
     return Expanded(
         child:Padding(
           padding: const EdgeInsets.all(4),
@@ -104,7 +101,7 @@ class _CalculatorState extends State<Calculator> {
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
               padding: const EdgeInsets.all(24),
-             backgroundColor: bgcolor
+             backgroundColor: bgColor
             ),
             onPressed: () => calculatorFunction(value),
             child: Text(value,
@@ -121,6 +118,7 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.black38,
         title: const Text('Calculator',
         style: TextStyle(
