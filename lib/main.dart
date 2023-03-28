@@ -68,7 +68,6 @@ class _CalculatorState extends State<Calculator> {
          Expression exp = p.parse(displayString);
          ContextModel cm = ContextModel();
          resultString = '${exp.evaluate(EvaluationType.REAL, cm)}';
-
          fontSize = 55.0;
        }
        catch (e) {
